@@ -3,6 +3,7 @@ import { Open_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import './globals.css';
+import { cn } from '@/lib/utils';
 
 const inter = Open_Sans({ subsets: ['latin'] });
 
@@ -19,12 +20,12 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={inter.className}>
+        <body className={cn(inter.className, 'bg-white dark:bg-[#313338]')}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
             enableSystem={false}
-            storageKey="portfolio"
+            storageKey="next-portfolio"
             disableTransitionOnChange
           >
             {children}
