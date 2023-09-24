@@ -1,20 +1,18 @@
-import { UserButton } from '@clerk/nextjs';
-import HomePage from './(main)/(routes)/home/page';
-import { ModeToggle } from '@/components/mode-toggle';
+import HomePage from '@/app/(main)/(routes)/home/page';
+import { Sidebar } from '@/components/navigation/navigation-sidebar';
+import Navbar from '@/components/navigation/navigation-navbar';
 
-export default function Home() {
+export default function Home({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <div className="h-full">
-        <div className="flex justify-end">
-          <UserButton afterSignOutUrl="/" />
-        </div>
-        <p className="text-2xl text-red-500 font-semibold">
-          My Next-13 Portfolio
-        </p>
-        <ModeToggle />
-        <HomePage />
+    <div className="h-full relative">
+      <div className="hidden h-full md:flex md:w-72 md:flex-col md:fixed md:inset-y-0 z-80 bg-gray-900">
+        <Sidebar />
       </div>
-    </>
+      <main className="md:pl-72 pb-10">
+        <Navbar />
+        <HomePage />
+        {children}
+      </main>
+    </div>
   );
 }

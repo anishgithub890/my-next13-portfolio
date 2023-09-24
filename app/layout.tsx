@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import './globals.css';
 import { cn } from '@/lib/utils';
+import ClientOnly from '@/components/client-only';
 
 const inter = Open_Sans({ subsets: ['latin'] });
 
@@ -28,7 +29,7 @@ export default function RootLayout({
             storageKey="next-portfolio"
             disableTransitionOnChange
           >
-            {children}
+            <ClientOnly>{children}</ClientOnly>
           </ThemeProvider>
         </body>
       </html>

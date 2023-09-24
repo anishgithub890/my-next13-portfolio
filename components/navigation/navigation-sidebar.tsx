@@ -1,12 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { Montserrat } from 'next/font/google';
 import { ImageIcon, Home, MessageSquare } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
+import Logo from '@/components/logo';
 
 const poppins = Montserrat({ weight: '600', subsets: ['latin'] });
 
@@ -14,7 +14,7 @@ const routes = [
   {
     label: 'Home',
     icon: Home,
-    href: '/home',
+    href: '/',
     color: 'text-sky-500',
   },
   {
@@ -37,13 +37,10 @@ export const Sidebar = () => {
   return (
     <div className="space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white">
       <div className="px-3 py-2 flex-1">
-        <Link href="/dashboard" className="flex items-center pl-3 mb-14">
-          <div className="relative h-8 w-8 mr-4">
-            <Image fill alt="Logo" src="/logo.png" />
+        <Link href="/" className="flex items-center pl-3 mb-14">
+          <div className="relative h-full w-full mr-4">
+            <Logo />
           </div>
-          <h1 className={cn('text-2xl font-bold', poppins.className)}>
-            Genius
-          </h1>
         </Link>
         <div className="space-y-1">
           {routes.map((route) => (
