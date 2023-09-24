@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useAuth } from '@clerk/nextjs';
 
 import { Button } from '@/components/ui/button';
+import { ModeToggle } from '@/components/mode-toggle';
 
 const HomePage = () => {
   const { isSignedIn } = useAuth();
@@ -43,6 +44,9 @@ const HomePage = () => {
       </div>
       <div className="text-zinc-400 text-xs md:text-sm font-normal">
         No credit card required.
+      </div>
+      <div>
+        <ModeToggle />
       </div>
     </div>
   );

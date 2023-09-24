@@ -35,12 +35,20 @@ export const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white">
+    <div className="space-y-4 py-4 flex flex-col h-full bg-zinc-50 dark:bg-[#111827] text-white">
       <div className="px-3 py-2 flex-1">
         <Link href="/" className="flex items-center pl-3 mb-14">
-          <div className="relative h-full w-full mr-4">
+          <div>
             <Logo />
           </div>
+          <h1
+            className={cn(
+              'text-2xl pl-3 font-bold text-zinc-900 dark:text-white',
+              poppins.className
+            )}
+          >
+            ANISH
+          </h1>
         </Link>
         <div className="space-y-1">
           {routes.map((route) => (
@@ -48,9 +56,9 @@ export const Sidebar = () => {
               key={route.href}
               href={route.href}
               className={cn(
-                'text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition',
+                'text-sm group flex p-3 w-full justify-start font-medium cursor-pointer dark:hover:text-white hover:text-zinc-900 dark:hover:bg-white/10 hover:bg-zinc-200 rounded-lg transition',
                 pathname === route.href
-                  ? 'text-white bg-white/10'
+                  ? 'dark:text-white text-zinc-700 dark:bg-white/10 bg-zinc-200'
                   : 'text-zinc-400'
               )}
             >
