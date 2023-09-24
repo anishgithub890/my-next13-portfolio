@@ -1,15 +1,10 @@
-import { UserButton } from '@clerk/nextjs';
+import { HomePage } from '@/app/(main)/(routes)/home/home-page';
 
 export default function Home() {
   return (
     <>
       <div>
-        <div className="flex justify-end">
-          <UserButton afterSignOutUrl="/" />
-        </div>
-        <p className="text-2xl text-red-500 font-semibold">
-          My Next-13 Portfolio
-        </p>
+        <HomePage />
       </div>
     </>
   );
