@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
 import Logo from '@/components/logo';
+import { Separator } from '@/components/ui/separator';
 
 const poppins = Montserrat({ weight: '600', subsets: ['latin'] });
 
@@ -35,7 +36,7 @@ export const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="space-y-4 py-4 flex flex-col h-full bg-zinc-50 dark:bg-[#111827] text-white">
+    <div className="space-y-2 py-1 flex flex-col h-full bg-zinc-50 dark:bg-[#111827] text-white">
       <div className="px-3 py-2 flex-1">
         <Link href="/" className="flex items-center pl-3 mb-14">
           <div>
@@ -68,6 +69,7 @@ export const Sidebar = () => {
               </div>
             </Link>
           ))}
+          h
         </div>
       </div>
     </div>
