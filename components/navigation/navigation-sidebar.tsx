@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
 import Logo from '@/components/logo';
-import { Separator } from '@/components/ui/separator';
 
 const poppins = Montserrat({ weight: '600', subsets: ['latin'] });
 
@@ -69,7 +68,6 @@ export const Sidebar = () => {
               </div>
             </Link>
           ))}
-          h
         </div>
       </div>
     </div>
