@@ -1,45 +1,25 @@
 // 'use client';
-// import { AiOutlineMenu } from 'react-icons/ai';
-// import Avatar from '../Avatar';
-// import { useCallback, useState } from 'react';
-// import MenuItem from './MenuItem';
 
-// import useRegisterModal from '@/app/hooks/useRegisterModal';
-// import useLoginModal from '@/app/hooks/useLoginModal';
-// import useRentModal from '@/app/hooks/useRentModal';
-// import { signOut } from 'next-auth/react';
+// import { Menu } from 'lucide-react';
+// import { useState } from 'react';
 
-// import { SafeUser } from '@/app/types';
 // import { useRouter } from 'next/navigation';
+// import { currentProfile } from '@/lib/current-profile';
+// import { UserAvatar } from '../user-avatar';
+// import { UserButton, useAuth } from '@clerk/nextjs';
 
-// interface UserMenuProps {
-//   currentUser?: SafeUser | null;
-// }
-
-// const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+// const UserMenu = () => {
 //   const router = useRouter();
-//   const loginModal = useLoginModal();
-//   const registerModal = useRegisterModal();
-//   const rendModal = useRentModal();
 //   const [isOpen, setIsOpen] = useState(true);
 
-//   const toggleOpen = useCallback(() => {
-//     setIsOpen((value) => !value);
-//   }, []);
-
-//   const onRent = useCallback(() => {
-//     if (!currentUser) {
-//       return loginModal.onOpen();
-//     }
-//     //open rent modal
-//     rendModal.onOpen();
-//   }, [currentUser, loginModal, rendModal]);
+//   const profile = currentProfile();
+//   const { isSignedIn } = useAuth();
 
 //   return (
 //     <div className="relative">
 //       <div className="flex flex-row items-center gap-3">
 //         <div
-//           onClick={onRent}
+//           onClick={() => {}}
 //           className="
 //           hidden
 //           md:block
@@ -56,7 +36,7 @@
 //           Airbnb your home
 //         </div>
 //         <div
-//           onClick={toggleOpen}
+//           onClick={() => {}}
 //           className="
 //           p-4
 //           md:py-1
@@ -73,9 +53,9 @@
 //           transition
 //         "
 //         >
-//           <AiOutlineMenu />
+//           <Menu />
 //           <div className="hidden md:block">
-//             <Avatar src={currentUser?.image} />
+//             <UserAvatar />
 //           </div>
 //         </div>
 //       </div>
@@ -96,33 +76,20 @@
 //           "
 //         >
 //           <div className="flex flex-col cursor-pointer">
-//             {currentUser ? (
+//             {isSignedIn ? (
 //               <>
-//                 <MenuItem
-//                   onClick={() => router.push('/trips')}
-//                   label="My trips"
+//                 <UserButton
+//                   afterSignOutUrl="/"
+//                   appearance={{
+//                     elements: {
+//                       avatarBox: 'h-[35px] w-[35px]',
+//                     },
+//                   }}
 //                 />
-//                 <MenuItem
-//                   onClick={() => router.push('/favorites')}
-//                   label="My favourites"
-//                 />
-//                 <MenuItem
-//                   onClick={() => router.push('/reservations')}
-//                   label="My reservation"
-//                 />
-//                 <MenuItem
-//                   onClick={() => router.push('/properties')}
-//                   label="My properties"
-//                 />
-//                 <MenuItem onClick={rendModal.onOpen} label="Airbnb my home" />
-//                 <hr />
-//                 <MenuItem onClick={() => signOut()} label="Logout" />
 //               </>
 //             ) : (
 //               <>
-//                 <MenuItem onClick={loginModal.onOpen} label="Login" />
-
-//                 <MenuItem onClick={registerModal.onOpen} label="Sign up" />
+//                 <button onClick={() => router.push('/sign-up')}>Login</button>
 //               </>
 //             )}
 //           </div>
