@@ -7,6 +7,8 @@ import { ModeToggle } from '../mode-toggle';
 import { Button } from '../ui/button';
 import { useRouter } from 'next/navigation';
 import { LogIn } from 'lucide-react';
+import Logo from '../logo';
+import NavigationMenuItem from './navigation-menuitem';
 
 const TOP_OFFSET = 66;
 
@@ -34,13 +36,13 @@ const NavigationHeader = () => {
 
   return (
     <div
-      className={`fixed w-full bg-white dark:bg-zinc-700 z-10 shadow-sm ${
+      className={`fixed w-full bg-white dark:bg-zinc-700 z-10 shadow-sm pt-3 ${
         showBackground ? 'bg-zinc-200 bg-opacity-90 transition-all' : ''
       }`}
     >
       <div
         className="
-          py-6
+          py-2
           border-b-[2px]
         "
       >
@@ -52,12 +54,19 @@ const NavigationHeader = () => {
             justify-between
             gap-1
             md:gap-0
+            pr-5
+            pl-6
           "
         >
-          <div className="pl-2">
+          <Logo />
+          <div className="pl-2 pt-2">
             <MobileSidebar />
           </div>
+
           <div className="pb-2 mt-auto flex items-center flex-row gap-y-4 gap-2 pr-2 pt-4">
+            <div className="pr-6">
+              <NavigationMenuItem />
+            </div>
             {isSignedIn ? (
               <UserButton
                 afterSignOutUrl="/"
