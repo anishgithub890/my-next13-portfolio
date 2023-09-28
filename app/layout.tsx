@@ -1,10 +1,11 @@
 import { ClerkProvider } from '@clerk/nextjs';
-import { Open_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
-import { ThemeProvider } from '@/components/providers/theme-provider';
-import './globals.css';
+import { Open_Sans } from 'next/font/google';
+
 import { cn } from '@/lib/utils';
+import { ThemeProvider } from '@/components/providers/theme-provider';
 import ClientOnly from '@/components/client-only';
+import './globals.css';
 
 const inter = Open_Sans({ subsets: ['latin'] });
 

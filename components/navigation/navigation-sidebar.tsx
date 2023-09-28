@@ -1,12 +1,13 @@
 'use client';
 
+import { ImageIcon, Home, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 import { Montserrat } from 'next/font/google';
-import { ImageIcon, Home, MessageSquare } from 'lucide-react';
-import { usePathname } from 'next/navigation';
 
+import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import Logo from '../logo';
+
+import Logo from '@/components/logo';
 
 const poppins = Montserrat({ weight: '600', subsets: ['latin'] });
 

@@ -1,14 +1,16 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { MobileSidebar } from './navigation-mobilesidebar';
 import { UserButton, useAuth } from '@clerk/nextjs';
-import { ModeToggle } from '../mode-toggle';
-import { Button } from '../ui/button';
-import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { LogIn } from 'lucide-react';
-import Logo from '../logo';
-import NavigationMenuItem from './navigation-menuitem';
+
+import { useRouter } from 'next/navigation';
+
+import { Button } from '@/components/ui/button';
+import { MobileSidebar } from '@/components/navigation/navigation-mobilesidebar';
+import NavigationMenuItem from '@/components/navigation/navigation-menuitem';
+import Logo from '@/components/logo';
+import { ModeToggle } from '@/components/mode-toggle';
 
 const TOP_OFFSET = 66;
 

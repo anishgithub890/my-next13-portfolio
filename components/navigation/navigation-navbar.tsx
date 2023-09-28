@@ -1,4 +1,4 @@
-import NavigationHeader from './navigation-header';
+import NavigationHeader from '@/components/navigation/navigation-header';
 
 const Navbar = async () => {
   return (
