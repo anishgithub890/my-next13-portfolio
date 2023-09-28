@@ -58,7 +58,10 @@ const NavigationHeader = () => {
             pl-6
           "
         >
-          <Logo />
+          <div className="hidden md:block pt-4">
+            <Logo />
+          </div>
+
           <div className="pl-2 pt-2">
             <MobileSidebar />
           </div>

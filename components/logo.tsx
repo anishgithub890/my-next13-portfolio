@@ -9,7 +9,7 @@ const MotionLink = motion(Link);
 const Logo = () => {
   const router = useRouter();
   return (
-    <div className="hidden md:block pl-2 pt-2 flex-row cursor-pointer">
+    <div className="pl-2 flex-row cursor-pointer">
       <MotionLink
         href="/"
         className="w-12 h-12 pl-2 bg-black text-white flex items-center rounded-full text-xl font-bold"
