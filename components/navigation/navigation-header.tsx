@@ -11,6 +11,8 @@ import { MobileSidebar } from '@/components/navigation/navigation-mobilesidebar'
 import NavigationMenuItem from '@/components/navigation/navigation-menuitem';
 import Logo from '@/components/logo';
 import { ModeToggle } from '@/components/mode-toggle';
+import { Separator } from '../ui/separator';
+import { cn } from '@/lib/utils';
 
 const TOP_OFFSET = 66;
 
@@ -45,7 +47,7 @@ const NavigationHeader = () => {
       <div
         className="
           py-2
-          border-b-[2px]
+          border-b-[1px]
         "
       >
         <div
@@ -71,6 +73,9 @@ const NavigationHeader = () => {
           <div className="pb-2 mt-auto flex items-center flex-row gap-y-4 gap-2 pr-2 pt-4">
             <div className="pr-6">
               <NavigationMenuItem />
+            </div>
+            <div className="h-10 hidden md:block">
+              <Separator orientation="vertical" />
             </div>
             {isSignedIn ? (
               <UserButton

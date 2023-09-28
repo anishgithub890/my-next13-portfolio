@@ -3,12 +3,9 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-import { useRouter } from 'next/navigation';
-
 const MotionLink = motion(Link);
 
 const Logo = () => {
-  const router = useRouter();
   return (
     <div className="pl-2 flex-row cursor-pointer">
       <MotionLink
