@@ -76,6 +76,7 @@ const NavigationHeader = () => {
             <div className="h-10 hidden md:block">
               <Separator orientation="vertical" />
             </div>
+
             {isSignedIn ? (
               <UserButton
                 afterSignOutUrl="/"
