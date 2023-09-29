@@ -7,12 +7,11 @@ import { LogIn } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 import { MobileSidebar } from '@/components/navigation/navigation-mobilesidebar';
 import NavigationMenuItem from '@/components/navigation/navigation-menuitem';
 import Logo from '@/components/logo';
 import { ModeToggle } from '@/components/mode-toggle';
-import { Separator } from '../ui/separator';
-import { cn } from '@/lib/utils';
 
 const TOP_OFFSET = 66;
 
