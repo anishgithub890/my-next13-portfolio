@@ -38,7 +38,7 @@ export const Sidebar = () => {
   return (
     <div className="space-y-2 py-1 flex flex-col h-full bg-zinc-50 dark:bg-[#111827] text-white">
       <div className="px-3 py-2 flex-1">
-        <Link href="/" className="flex items-center pl-3 mb-14">
+        <div className="flex items-center pl-3 mb-14">
           <Logo />
           <h1
             className={cn(
@@ -48,7 +48,7 @@ export const Sidebar = () => {
           >
             ANISH
           </h1>
-        </Link>
+        </div>
 
         <div className="space-y-1">
           {routes.map((route) => (
