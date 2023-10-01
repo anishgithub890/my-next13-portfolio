@@ -1,6 +1,7 @@
 'use client';
 
-import { ImageIcon, Home, MessageSquare } from 'lucide-react';
+import { useUser } from '@clerk/nextjs';
+import { ImageIcon, Home, MessageSquare, Shield } from 'lucide-react';
 import Link from 'next/link';
 import { Montserrat } from 'next/font/google';
 
@@ -8,6 +9,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
 import Logo from '@/components/logo';
+import { DropdownMenuDemo } from './navigation-dashboard';
 
 const poppins = Montserrat({ weight: '600', subsets: ['latin'] });
 
@@ -34,6 +36,7 @@ const routes = [
 
 export const Sidebar = () => {
   const pathname = usePathname();
+  const { user } = useUser();
 
   return (
     <div className="space-y-2 py-1 flex flex-col h-full bg-zinc-50 dark:bg-[#111827] text-white">
@@ -68,6 +71,9 @@ export const Sidebar = () => {
               </div>
             </Link>
           ))}
+          <div className="flex pt-1 flex-col dark:text-white text-zinc-900">
+            {user?.username === 'mahatoanish284' ? <DropdownMenuDemo /> : ''}
+          </div>
         </div>
       </div>
     </div>

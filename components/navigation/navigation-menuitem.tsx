@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
+import { DropdownMenuDemo } from './navigation-dashboard';
+import { useUser } from '@clerk/nextjs';
 
 const routes = [
   {
@@ -22,6 +24,7 @@ const routes = [
 
 const NavigationMenuItem = () => {
   const pathname = usePathname();
+  const { user } = useUser();
   return (
     <div className="hidden md:block">
       <div className="flex flex-row items-center gap-2 pt-2">
@@ -39,6 +42,8 @@ const NavigationMenuItem = () => {
             <div className="flex flex-col cursor-pointer">{route.label}</div>
           </Link>
         ))}
+
+        {user?.username === 'mahatoanish284' ? <DropdownMenuDemo /> : ''}
       </div>
     </div>
   );
