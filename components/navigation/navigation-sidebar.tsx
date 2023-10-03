@@ -1,7 +1,9 @@
 'use client';
 
 import { useUser } from '@clerk/nextjs';
-import { ImageIcon, Home, MessageSquare, Shield } from 'lucide-react';
+import { ImageIcon, Home } from 'lucide-react';
+import { AiFillProject } from 'react-icons/ai';
+import { GiSkills } from 'react-icons/gi';
 import Link from 'next/link';
 import { Montserrat } from 'next/font/google';
 
@@ -9,7 +11,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
 import Logo from '@/components/logo';
-import { DropdownMenuDemo } from './navigation-dashboard';
+import { DropdownMenuAdmin } from '@/components/navigation/navigation-dashboard';
 
 const poppins = Montserrat({ weight: '600', subsets: ['latin'] });
 
@@ -22,13 +24,13 @@ const routes = [
   },
   {
     label: 'Project',
-    icon: MessageSquare,
+    icon: AiFillProject,
     href: '/project',
     color: 'text-violet-500',
   },
   {
     label: 'Skill',
-    icon: ImageIcon,
+    icon: GiSkills,
     href: '/skill',
     color: 'text-pink-700',
   },
@@ -72,7 +74,7 @@ export const Sidebar = () => {
             </Link>
           ))}
           <div className="flex pt-1 flex-col dark:text-white text-zinc-900">
-            {user?.username === 'mahatoanish284' ? <DropdownMenuDemo /> : ''}
+            {user?.username === 'mahatoanish284' ? <DropdownMenuAdmin /> : ''}
           </div>
         </div>
       </div>

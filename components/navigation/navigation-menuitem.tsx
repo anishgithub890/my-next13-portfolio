@@ -1,11 +1,11 @@
 'use client';
 
+import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
-import { DropdownMenuDemo } from './navigation-dashboard';
-import { useUser } from '@clerk/nextjs';
+import { DropdownMenuAdmin } from '@/components/navigation/navigation-dashboard';
 
 const routes = [
   {
@@ -19,6 +19,10 @@ const routes = [
   {
     label: 'Skill',
     href: '/skill',
+  },
+  {
+    label: 'Contact',
+    href: '/contact',
   },
 ];
 
@@ -43,7 +47,7 @@ const NavigationMenuItem = () => {
           </Link>
         ))}
 
-        {user?.username === 'mahatoanish284' ? <DropdownMenuDemo /> : ''}
+        {user?.username === 'mahatoanish284' ? <DropdownMenuAdmin /> : ''}
       </div>
     </div>
   );

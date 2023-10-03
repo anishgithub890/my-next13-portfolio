@@ -30,7 +30,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import Link from 'next/link';
 
-export function DropdownMenuDemo() {
+export function DropdownMenuAdmin() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
