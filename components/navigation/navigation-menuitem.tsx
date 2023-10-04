@@ -46,8 +46,9 @@ const NavigationMenuItem = () => {
             <div className="flex flex-col cursor-pointer">{route.label}</div>
           </Link>
         ))}
-
-        {user?.username === 'mahatoanish284' ? <DropdownMenuAdmin /> : ''}
+        <div>
+          {user?.username === 'mahatoanish284' ? <DropdownMenuAdmin /> : ''}
+        </div>
       </div>
     </div>
   );
