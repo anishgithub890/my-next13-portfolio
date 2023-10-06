@@ -11,34 +11,3 @@ datasource db {
   relationMode = "prisma"
 }
 
-model Profile {
-  id String @id @default(uuid())
-  userId String @unique
-  name String
-  imageUrl String @db.Text
-  email String @db.Text
-  
-  members Member[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-enum MemberRole {
-  ADMIN
-  GUEST
-}
-
-model Member {
-  id String @id @default(uuid())
-  role MemberRole @default(GUEST)
-
-  profileId String
-  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
-
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([profileId])
-}
