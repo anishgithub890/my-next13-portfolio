@@ -11,11 +11,10 @@ datasource db {
   relationMode = "prisma"
 }
 
-model Skill {
+model Store {
   id              String    @id @default(uuid())
+  name            String
   userId          String
-  label           String
-  imageUrl        String
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
 }
