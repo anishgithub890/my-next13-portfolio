@@ -1,89 +1,31 @@
-'use client';
+import { format } from 'date-fns';
 
-import TypewriterComponent from 'typewriter-effect';
-import Link from 'next/link';
-import { useAuth } from '@clerk/nextjs';
+import prismadb from '@/lib/prismadb';
 
-import { Button } from '@/components/ui/button';
-import { ModeToggle } from '@/components/mode-toggle';
+import { SkillColumn } from './components/columns';
+import { SkillClient } from './components/client';
 
-const AdminSkill = () => {
+const SkillsPage = async ({ params }: { params: { skillId: string } }) => {
+  const skills = await prismadb.skill.findMany({
+    orderBy: {
+      createdAt: 'desc',
+    },
+  });
+
+  const formattedSkills: SkillColumn[] = skills.map((item) => ({
+    id: item.id,
+    label: item.label,
+    imageUrl: item.imageUrl,
+    createdAt: format(item.createdAt, 'MMMM do, yyyy'),
+  }));
+
   return (
-    <div className="text-white font-bold py-36 text-center space-y-5">
-      <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
-        <h1 className="text-zinc-700 dark:text-white">The Best AI Tool for</h1>
-        <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-          <TypewriterComponent
-            options={{
-              strings: [
-                'Chatbot.',
-                'Photo Generation.',
-                'Blog Writing.',
-                'Mail Writing.',
-              ],
-              autoStart: true,
-              loop: true,
-            }}
-          />
-        </div>
-      </div>
-      <div className="text-sm md:text-xl font-light text-zinc-400">
-        Create content using AI 10x faster.
-      </div>
-      <div>
-        <Link href={'/'}>
-          <Button
-            variant="premium"
-            className="md:text-lg p-4 md:p-6 rounded-full font-semibold"
-          >
-            Start Generating For Free
-          </Button>
-        </Link>
-      </div>
-      <div className="text-zinc-400 text-xs md:text-sm font-normal">
-        No credit card required.
-      </div>
-      <div>
-        <ModeToggle />
-      </div>
-      <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
-        <h1 className="text-zinc-700 dark:text-white">The Best AI Tool for</h1>
-        <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-          <TypewriterComponent
-            options={{
-              strings: [
-                'Chatbot.',
-                'Photo Generation.',
-                'Blog Writing.',
-                'Mail Writing.',
-              ],
-              autoStart: true,
-              loop: true,
-            }}
-          />
-        </div>
-      </div>
-      <div className="text-sm md:text-xl font-light text-zinc-400">
-        Create content using AI 10x faster.
-      </div>
-      <div>
-        <Link href={'/'}>
-          <Button
-            variant="premium"
-            className="md:text-lg p-4 md:p-6 rounded-full font-semibold"
-          >
-            Start Generating For Free
-          </Button>
-        </Link>
-      </div>
-      <div className="text-zinc-400 text-xs md:text-sm font-normal">
-        No credit card required.
-      </div>
-      <div>
-        <ModeToggle />
+    <div className="flex-col">
+      <div className="flex-1 space-y-4 p-8 pt-6">
+        <SkillClient data={formattedSkills} />
       </div>
     </div>
   );
 };
 
-export default AdminSkill;
+export default SkillsPage;
